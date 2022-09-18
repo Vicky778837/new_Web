@@ -1,0 +1,37 @@
+ <h1 class='text-center'>Show</h1>
+<div class="container  mt-2">
+   <div class="justify-content-center">
+          <div class="card mb-3 m-auto m-0" style="width: 30rem; border: 5px solid;">
+            <div class="card-body">
+            <%#=image_tag(@user.avatar, class: "img") if @user.avatar.attached? %>
+               <h5 class="card-title">Name: <%= @user.name %></h5>
+               <h5 class="card-title">Email: <%= @user.email %></h>
+
+                <%=button_to"Delete",user_path(@user.id),method: :delete, data:{confirm: "Are you sure?"},class: "btn btn-danger" %>
+            </div>
+         </div>
+      <%@user.articles.each do |art|%>
+         <div class="card mb-3 m-auto m-0" style="width: 30rem; border: 5px solid;">
+            <div class="card-body">
+                <h5 class="card-title"><%=art.title%></h5>
+               <p class="card-text"><%= truncate(art.body, :length => 80)%></p>
+               <p class="card-title"></p>
+             <%= link_to"Show",article_path(art.id),class: "btn btn-info" %>
+
+            </div>
+         </div>
+      <% end %>
+      <div class="digg_pagination">
+         <div class="page_info">
+           <%#= page_entries_info @user  %>
+         </div>
+         <%#= will_paginate @user, :container => false %>
+      </div>
+</div>
+</div>
+<style>
+.img{
+  width: 440px;
+  margin-left: 10px;
+}
+</style>

@@ -1,0 +1,25 @@
+<h1 class='text-center'>Dashboard</h1>
+<div class="container image-bg mt-2">
+   <div class="justify-content-center">
+      <%@articles.each do |art|%>
+         <div class="card mb-3 m-auto m-0" style="width: 18rem;">
+            <div class="card-body">
+               <h5 class="card-title"><%=art.title%></h5>
+               <p class="card-text"><%= truncate(art.body, :length => 80) %></p>
+               <p class="card-text">Created By: <%=art.user.name %></p>
+               <p class="card-text">Created Time: <%=art.user.created_at %></p>
+
+               <%= link_to"Show",article_path(art.id),class: "btn btn-info" %>
+            </div>
+         </div>
+      <% end %>
+      <div class="digg_pagination">
+         <div class="page_info">
+            <%= page_entries_info @articles %>
+         </div>
+         <%= will_paginate @articles, :container => false %>
+      </div>
+   </div>
+</div>
+
+

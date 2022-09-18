@@ -1,0 +1,184 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+
+digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+    image-bg{
+  background-image: url('https://img.freepik.com/premium-photo/turquoise-matt-suede-fabric-background-velvet-texture_113767-1486.jpg?size=626&ext=jpg&ga=GA1.2.960762357.1662017388');
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$button-height: 44px;
+$avatar-size: 30px;
+$border-radius: $button-height/2;
+$button-padding: ($button-height+4 - $avatar-size)-10px;
+
+.cetu {
+ 
+
+
+  
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$button-height: 44px;
+$avatar-size: 30px;
+$border-radius: $button-height/2;
+$button-padding: ($button-height+4 - $avatar-size)-10px;
+
+.cetu {
+ 
+
+
+  
+}
+
+.menu-container {
+  position: relative;
+  border-radius: $border-radius;
+ // border: 1px solid #fafafa;
+  &.open {
+    > .menu-button {
+      color: #000;
+    }
+    > .menu-dropdown {
+      opacity: 1;
+      border-radius: $border-radius/2;
+      
+transition: opacity 0.2s, box-shadow 0.3s, border-radius 0.3s, transform 0.2s 0s ease-out;
+      transform: none;
+    }
+  }
+}
+
+.menu-button {
+  background: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  border: none;
+  padding: 0 $button-padding;
+  padding-right: 20px;
+  height: $button-height;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  outline: none !important;
+  background-color: transparent;
+  color: #fff;
+  z-index: 1;
+  position: relative;
+  > img {
+    border-radius: 100%;
+    height: $avatar-size;
+    width: $avatar-size;
+    margin-right: $button-padding + 5px;
+  }
+}
+
+.menu-dropdown {
+  //display: none;
+  box-shadow: 0 0 60px 5px rgba(#000,0.3);
+  opacity: 0;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  padding: 0;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  overflow: hidden;
+  border-radius: $border-radius $border-radius $border-radius/2 $border-radius/2;
+transition: opacity 0.2s, box-shadow 0.4s, border-radius 0.4s, transform 0s 0.2s ease-out;
+ transform: translateY(10px);
+  transform-origin: 0 0;
+  padding-top: $button-height;
+  .content {
+    overflow: hidden;
+    padding: $button-padding $button-padding*1.5 $button-padding/3;
+    > ul {
+      list-style: none;
+      margin: 0;
+       padding: 0;
+      > li {
+        list-style: none;
+        font-size: 16px;
+        margin: 0 0 15px;
+        padding: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  > .menu-button {
+    border: none;
+    color: #000;
+  }
+}
+

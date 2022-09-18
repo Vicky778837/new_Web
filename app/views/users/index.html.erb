@@ -1,0 +1,21 @@
+<h1 class='text-center'>Dashboard</h1>
+<div class="container  mt-2">
+   <div class="justify-content-center">
+      <% @users.each do |art|%>
+         <div class="card mb-3 m-auto m-0" style="width: 30rem; border: 5px solid;">
+            <div class="card-body">
+               <h5 class="card-title">Name: <%=art.name%></h5>
+               <p class="card-title">Email <%=art.email%></p>
+               <p class="card-title">Total Number of Article: <%=art.articles.count%></p>
+               <p class="card-title"><%=link_to"Show Article",user_path(art),class: "btn btn-outline-primary"%></p>
+            </div>
+         </div>
+      <% end %>
+      <div class="digg_pagination">
+         <div class="page_info">
+           <%= page_entries_info @user  %>
+         </div>
+         <%= will_paginate @user, :container => false %>
+      </div>
+     </div>
+</div>
