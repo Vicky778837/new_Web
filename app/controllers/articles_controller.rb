@@ -18,18 +18,17 @@ class ArticlesController < ApplicationController
   def new
     @article = current_user.articles.new
   end
-
   # GET /articles/1/edit
   def edit
   end
 
   # POST /articles or /articles.json
   def create
-    @article =  @item = current_user.articles.build(article_params)
+    @article = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to article_url(root_path), notice: "Article was successfully created." }
+        format.html { redirect_to articles_path, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }

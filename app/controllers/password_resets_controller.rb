@@ -4,7 +4,6 @@ class PasswordResetsController < ApplicationController
 
 
   def create
-    byebug
   user = User.find_by_email(params[:email].downcase)
   user.send_password_reset if user
   flash[:notice] = 'E-mail sent with password reset instructions.'
@@ -12,7 +11,6 @@ class PasswordResetsController < ApplicationController
 end
 
 def edit
-  byebug
   @user = User.find_by_password_reset_token!(params[:id])
 end
 

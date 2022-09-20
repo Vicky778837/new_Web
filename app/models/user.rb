@@ -2,9 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :articles
 
-
+validates :email, uniqueness: true
   def send_password_reset
-    byebug
   generate_token(:password_reset_token)
   self.password_reset_sent_at = Time.zone.now
   save!
@@ -12,7 +11,6 @@ class User < ApplicationRecord
 end
 # This generates a random password reset token for the user
 def generate_token(column)
-  byebug
   begin
     self[column] = SecureRandom.urlsafe_base64
   end while User.exists?(column => self[column])
