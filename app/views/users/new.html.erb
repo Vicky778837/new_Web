@@ -10,6 +10,8 @@
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'mb-1 form-control' %>
+         <%= f.label :Image %>
+      <%= f.file_field :avatar, class: 'mb-1 form-control' %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'mb-1 form-control' %>
@@ -21,3 +23,4 @@
     <% end %>
   </div>
 </div>
+

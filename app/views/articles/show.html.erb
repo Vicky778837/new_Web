@@ -5,12 +5,16 @@
             <%=image_tag(@article.avatar) if  @article.avatar.attached? %>
             <h5><%=@article.title%></h5>
             <p><%=@article.body%></p>
+          <% if current_user.id == @article.user_id %>
             <%=link_to"Edit Article",edit_article_path(@article),class:"btn btn-warning Btn"%>
             <%=link_to"Delete",article_path(@article), data: {
             method: :delete,
             confirm: "Are you sure?"
             },class:"btn btn-danger Btn"%>
             <%=link_to"Back",root_path(@article),class:"btn btn-secondary Btn"%>
+          <% else %>
+          <%=link_to"Back",root_path(@article),class:"btn btn-secondary Btn"%>
+          <% end %>
         </div>
         <div class="col-sm-2"></div>
     </div>

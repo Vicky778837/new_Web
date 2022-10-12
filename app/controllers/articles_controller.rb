@@ -20,12 +20,14 @@ class ArticlesController < ApplicationController
   end
   # GET /articles/1/edit
   def edit
+    unless current_user?(@article.user)
+      redirect_to article_path
+    end
   end
 
   # POST /articles or /articles.json
   def create
     @article = current_user.articles.build(article_params)
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_path, notice: "Article was successfully created." }

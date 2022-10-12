@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Article</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,11 +7,12 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if logged_in? %>
 	        <div class="menu-container ">
-	            <button class="menu-button"><img src="http://i.pravatar.cc/50"><span class="title"><%=current_user.name%></span></button>
+	            <button class="menu-button"><%=image_tag(current_user.avatar) if current_user.avatar.attached? %>
+               <span class="title"><%=current_user.name%></span></button>
 		        <div class="menu-dropdown">
 			        <div class="content">
 				        <ul>
-					      <li>Account Settings</li>
+					      <li><%=button_to"Delete",user_path(current_user),method: :delete, data:{confirm: "Are you sure?"},class: "btn btn-danger" %></li>
 					       <li><%=link_to'Profile',profile_path%></li>
 					       <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete,class:"nav-link"%></li>
 				        </ul>
@@ -66,3 +66,9 @@
    }
 });
 </script>
+<style>
+  .menu-container.open > .menu-button {
+    color: #000;
+    width: 186px;
+}
+</style>
