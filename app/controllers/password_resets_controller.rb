@@ -15,7 +15,6 @@ def edit
 end
 
 def update
-  byebug
   @user = User.find_by_password_reset_token!(params[:id])
   if @user.password_reset_sent_at < 2.hour.ago
     flash[:notice] = 'Password reset has expired'
@@ -31,7 +30,7 @@ end
 private
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:password)
+    params.require(:user).permit(:password_digest)
   end
 
 end

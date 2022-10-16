@@ -25,8 +25,24 @@ end
       render 'new'
     end
   end
+  def change_password
+    @user =  current_user
+   end
+     def update_password
+       @user =  current_user
+       @user.authenticate(params[:user][:password_digest]).present?
+       params[:user][:password] == params[:user][:password_confirmation]
+         if @user.update(password_digest:params[:user][:password])
+           redirect_to root_url, :notice => "Password has been changed!"
+         else
+           render "edit" 
+         end
+     end
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,:avatar)
   end
 end
+
+
+  
