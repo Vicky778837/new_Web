@@ -38,6 +38,12 @@ end
            render "edit" 
          end
      end
+     def destroy
+      @user = User.find(params[:id])
+      if @user.destroy
+        redirect_to login_path
+      end
+     end
   private
   def user_params
     params.require(:user).permit(:name, :email, :password,:avatar)

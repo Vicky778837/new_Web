@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :articles
-    has_one_attached :avatar
+  has_many :articles, dependent: :destroy 
+  has_one_attached :avatar
 validates :email, uniqueness: true
 before_update :encrypt_password
 
