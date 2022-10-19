@@ -1,17 +1,46 @@
-
-<div class="container">
-        <div class="item-container">
-            <h2 class="log-in">Log in</h2>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind-Css Login Form</title>
+   <!-- Tailwind-CSS CDN  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css" />
+  </head>
+  <body class="bg-blue-500">
+    <!-- Login Form -->
+    <div class="container mx-auto p-2">
+      <div class="max-w-sm mx-auto my-24 bg-white px-5 py-10 rounded shadow-xl">
+        <div class="text-center mb-8">
+          <h1 class="font-bold text-2xl font-bold">Login</h1>
         </div>
- <div class="item-container">
-     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control' %><br>
-
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-
-          <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
+          <div class="mt-5">
+         <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+            <label for="username">Email</label>
+            <%= f.email_field :email,  class: "block w-full p-2 border rounded border-gray-50",placeholder: "Enter Email"%>
+          </div>
+          <div class="mt-5">
+            <label for="password">Password</label>
+             <%= f.password_field :password,  class:"block w-full p-2 border rounded border-gray-500", type: "password",id:"password" ,placeholder: "Enter password"%>
+          </div>
+          <div class="mt-10">
+            <%= f.submit "Log in",class:"py-3 bg-green-500 hover:bg-green-600 rounded text-white text-center w-full"%>
+          </div>
+          <%= link_to "Recover Password",password_resets_new_path, id:"pass"%><br><br>
+          <%= link_to "Not a member? Register Now", signup_path, id:"sin"%>
+        </li>
+      </div>
       <% end %>
-  </div>
-</div>
+    </div>
+  </body>
+</html>
+
+<style type="text/css">  
+#pass{
+  color: red;
+  margin-left: 150px;
+  }
+  #sin{
+    color: green;
+
+  }
+</style>

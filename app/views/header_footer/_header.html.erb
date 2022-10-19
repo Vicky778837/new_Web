@@ -27,16 +27,10 @@
         <li class="nav-item">
           <%= link_to "Log in", login_path, class: "nav-link" %>    
         </li>
-        <li class="nav-item">
-          <%= link_to "Sign up", signup_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "password resets",password_resets_new_path, class: "nav-link" %>
-        </li>
         <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
+           Action
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"><%= link_to"Add New Article",new_article_path, class: "nav-link"%></a></li>

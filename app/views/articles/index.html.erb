@@ -20,6 +20,17 @@
          <%= will_paginate @articles, :container => false %>
       </div>
    </div>
+      <%= link_to 'Back', root_path,class: "btn btn-info new_btn_articles" %>
 </div>
-
+<style type="text/css">
+   .digg_pagination{
+   margin-left: 400px;
+   margin-top: 10px;
+  }
+ .new_btn_articles{
+   margin-left: 400px;
+    width: 120px;
+    margin-top: 10px;
+  }
+</style>
 

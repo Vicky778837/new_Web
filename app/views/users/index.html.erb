@@ -18,10 +18,11 @@
          <%= will_paginate @user, :container => false %>
       </div>
      </div>
+      <%= link_to 'Back', root_path,class: "btn btn-info new_btn_articles" %>
 </div>
 
 <style>
-   body {
+ /*  body {
   margin: 2rem;
 }
 .card-body {
@@ -29,5 +30,14 @@
     display: flex;
     align-items: stretch;
    
+  }*/
+  .digg_pagination{
+   margin-left: 320px;
+   margin-top: 10px;
+  }
+  .new_btn_articles{
+   margin-left: 320px;
+    width: 120px;
+    margin-top: 10px;
   }
 </style>

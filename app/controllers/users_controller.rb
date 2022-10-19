@@ -18,9 +18,10 @@ end
   def create
     @user = User.new(user_params)
     if @user.save
+      UsermailerMailer.singup(@user).deliver_now
       log_in @user
       flash[:success] = "Welcome to the app!"
-      redirect_to @user
+      redirect_to users_path
     else
       render 'new'
     end

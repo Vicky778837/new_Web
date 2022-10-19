@@ -11,13 +11,22 @@
             method: :delete,
             confirm: "Are you sure?"
             },class:"btn btn-danger Btn"%>
-            <%=link_to"Back",root_path(@article),class:"btn btn-secondary Btn"%>
+           <%= link_to 'Back', articles_path,class: "btn btn-info new_btn_articles" %>
+
           <% else %>
-          <%=link_to"Back",root_path(@article),class:"btn btn-secondary Btn"%>
+         <%= link_to 'Back', articles_path,class: "btn btn-info new_btn_articles" %>
+
           <% end %>
         </div>
         <div class="col-sm-2"></div>
     </div>
 </div>
 
+<style type="text/css">
+    .new_btn_articles{
+    margin-left: 320px;
+    margin-top: 10px;
+    width: 130px;
+}
+</style>
 
